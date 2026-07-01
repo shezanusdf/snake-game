@@ -14,14 +14,15 @@ This is a simple terminal based retro snake game. The snake can be controlled by
 
 ## How to run
 
-1. Clone this repo
-
+1. Clone this repo:
+```bash
 git clone https://github.com/shezanusdf/snake-game
+```
 
 2. run the game
-
+```bash
 python snake_game.py
-
+```
 ## Controls
 
 | Key | Action |
