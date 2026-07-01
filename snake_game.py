@@ -24,21 +24,21 @@ x = random.randint(0,9)
 y = random.randint(0,9)
 
 def main():
+    global x, y
     global row, col
     DIRECTION = "RIGHT"
     drawBoard()
-    positions[x][y] = apple
     while True:
+        positions[x][y] = apple
         if msvcrt.kbhit():
             DIRECTION = take_input()
         move_direction(DIRECTION)
         positions[row][col] = snake
         drawBoard()
         if row == x and col == y:
-            print("You won!")
-            break
-    
-
+            x = random.randint(0,9)
+            y = random.randint(0,9)
+            continue
         time.sleep(0.2)
 
 
@@ -47,6 +47,7 @@ def drawBoard():
     for i in range(10):
         print("|", "".join(positions[i]), "|") 
     print("------------------------")
+    print("Press ctrl + c to quit")
 
 def take_input():
     if msvcrt.kbhit():
@@ -87,4 +88,10 @@ def move_direction(DIRECTION):
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("=" * 20)
+        print("    GAME CLOSED")
+        print(" Thanks for playing!")
+        print("=" * 20)
